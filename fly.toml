@@ -4,7 +4,7 @@
 #
 
 app = 'express-minimessageboard'
-primary_region = 'iad'
+primary_region = 'waw'
 
 [build]
 
