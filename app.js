@@ -21,9 +21,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/new", newRouter);
 app.use("/", indexRouter);
 
+const hostname = "0.0.0.0";
+const PORT = process.env.PORT || 3000;
 
-const PORT = process.env.PORT || 4000;
-
-app.listen(PORT, () => {
+app.listen(PORT, hostname, () => {
   console.log("PORT: " + PORT);
 });
