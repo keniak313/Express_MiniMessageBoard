@@ -10,11 +10,6 @@ CREATE TABLE IF NOT EXISTS mini (
     message VARCHAR ( 255 ),
     date DATE
 );
-
-INSERT INTO mini (username, message, date)
-VALUES
-    ('Pawel', 'Cos cos', '2025-03-01 12:00:00'),
-    ('Aga', 'Cos innego tutaj jest...', '2025-03-01 13:00:00');
 `
 
 async function main() {
