@@ -7,4 +7,4 @@ export async function getAll() {
   return rows;
 }
 
-db.getAll = getAll();
+db.getAll = getAll;
