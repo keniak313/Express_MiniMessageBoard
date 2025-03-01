@@ -17,13 +17,13 @@ const messages = [
 async function getUsername(req,res) {
   console.log("cos")
   const usernames = await db.getAll();
-  console.log(usernames);
+  res.send("Username: " + usernames.map(user => user.username).join(", "));
 }
 
 export const indexRouter = Router();
 
 indexRouter.get("/", (req, res) => {
-  res.send(getUsername)
+  getUsername(req, res);
   // res.render("index", { messages: messages });
 });
 
