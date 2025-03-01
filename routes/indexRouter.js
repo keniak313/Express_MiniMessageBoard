@@ -1,4 +1,5 @@
 import { Router } from "express";
+import db from "../db/queries.js";
 
 const messages = [
   {
@@ -13,11 +14,17 @@ const messages = [
   },
 ];
 
+async function getUsername(req,res) {
+  console.log("cos")
+  const usernames = await db.getAll();
+  console.log(usernames);
+}
+
 export const indexRouter = Router();
 
 indexRouter.get("/", (req, res) => {
-  console.log(req);
-  res.render("index", { messages: messages });
+  getUsername(req,res);
+  // res.render("index", { messages: messages });
 });
 
 indexRouter.get("/user/:userName", (req, res) => {

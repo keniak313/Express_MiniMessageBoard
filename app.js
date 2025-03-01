@@ -1,4 +1,4 @@
-import dotenv from "dotenv/config";
+import "dotenv/config";
 import express from "express";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -21,9 +21,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/new", newRouter);
 app.use("/", indexRouter);
 
-const hostname = "0.0.0.0";
+const hostname = process.env.HOST || "0.0.0.0";
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, hostname, () => {
+app.listen(PORT, () => {
   console.log("PORT: " + PORT);
 });
