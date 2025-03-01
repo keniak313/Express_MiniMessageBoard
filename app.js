@@ -24,6 +24,6 @@ app.use("/", indexRouter);
 const hostname = process.env.HOST || "0.0.0.0";
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
+app.listen(PORT, hostname, () => {
   console.log("PORT: " + PORT);
 });
