@@ -33,7 +33,7 @@ async function findData(req, res) {
   const userId = Number(req.params.id);
   const userData = await db.findUserDataById(userId);
   console.log(userData);
-  if (!userData) {
+  if (userData.length === 0 || !userData) {
     res.send("User not found");
     return;
   }
