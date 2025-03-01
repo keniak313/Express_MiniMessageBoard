@@ -1,20 +1,29 @@
 <html>
 
 <head>
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <a href="/new"><button>NEW MESSAGE</button></a>
   <br />
   <br />
-  <% messages.forEach((message) =>{ %>
-  <span><%=message.text %></span>
+  <% messages.map((message) =>{ %>
+  <div class="msgBox">
+    <h3><%=message.username %>:</h3><span><%=message.message %></span>
+  </div>
   <br /><br />
-  <span>User: <%=message.user %></span>
+
   <br />
-  <span><%=message.added %></span>
-  <a href="user/<%=message.user %>"><button>Open</button></a>
+  <span><%=message.date %></span>
+  <a href="user/<%=message.id %>"><button>Open</button></a>
   <hr />
   <% }) %>
+  <hr />
+  <%- include('form') -%>
+  <div id="anchor"></div>
+  <!-- <a href="/new"><button>NEW MESSAGE</button></a> -->
+  <br>
+  <a href="/delete"><button>Clear</button></a>
 </body>
 
 
