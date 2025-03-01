@@ -2,9 +2,15 @@ import { pool } from "../db/pool.js";
 
 export default function db() {}
 
-export async function getAll() {
+async function getAllUsernames() {
   const { rows } = await pool.query("SELECT * FROM usernames");
   return rows;
 }
 
-db.getAll = getAll;
+async function getAllMessages(){
+  const {rows} = await pool.query("SELECT * FROM usernames");
+  return rows;
+}
+
+db.getAllUsernames = getAllUsernames;
+db.getAllMessages = getAllMessages;

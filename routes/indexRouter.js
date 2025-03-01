@@ -14,16 +14,21 @@ const messages = [
   },
 ];
 
-async function getUsername(req,res) {
-  console.log("cos")
-  const usernames = await db.getAll();
-  res.send("Username: " + usernames.map(user => user.username).join(", "));
+async function getUsernames(req, res) {
+  const usernames = await db.getAllUsernames();
+  res.send("Username: " + usernames.map((user) => user.username).join(", "));
+}
+
+async function getMessages(req, res) {
+const messages = await db.getAllMessages();
+res.send("Message: " + messages.map(msg => msg.message).join(", "))
 }
 
 export const indexRouter = Router();
 
 indexRouter.get("/", (req, res) => {
-  getUsername(req, res);
+  getUsernames(req, res);
+  getMessages(req, res);
   // res.render("index", { messages: messages });
 });
 
@@ -37,8 +42,12 @@ indexRouter.get("/user/:userName", (req, res) => {
   res.render("message", { message: message });
 });
 
-indexRouter.post("/new", (req, res) =>{
-    console.log(req)
-    messages.push({text: req.body.message, user: req.body.author, added: new Date()})
-    res.redirect('/')
-  })
+indexRouter.post("/new", (req, res) => {
+  console.log(req);
+  messages.push({
+    text: req.body.message,
+    user: req.body.author,
+    added: new Date(),
+  });
+  res.redirect("/");
+});
