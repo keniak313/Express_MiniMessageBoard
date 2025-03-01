@@ -23,7 +23,7 @@ async function getUsername(req,res) {
 export const indexRouter = Router();
 
 indexRouter.get("/", (req, res) => {
-  getUsername(req,res);
+  res.send(getUsername)
   // res.render("index", { messages: messages });
 });
 
